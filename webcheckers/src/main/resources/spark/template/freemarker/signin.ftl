@@ -9,6 +9,9 @@
   <div class="page">
 
     <h1>Web Checkers</h1>
+		<div class="navigation">
+      <a href="/">my home</a>
+    </div>
 
     <div class="body">
 		<div class="signin-wrapper">
