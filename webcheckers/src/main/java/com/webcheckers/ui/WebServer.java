@@ -46,6 +46,8 @@ public class WebServer {
    * The URL pattern to request the Home page.
    */
   public static final String HOME_URL = "/";
+  public static final String SIGNIN_URL = "/signin";
+	public static final String SIGNUP_URL = "/signup";
 
   //
   // Attributes
@@ -65,7 +67,7 @@ public class WebServer {
    */
   public WebServer(
       final TemplateEngine templateEngine) {
-    this.templateEngine = templateEngine;
+    	this.templateEngine = templateEngine;
   }
 
   //
@@ -120,6 +122,8 @@ public class WebServer {
 
     // Shows the Checkers game Home page.
     get(HOME_URL, new HomeController(), templateEngine);
+		get(SIGNIN_URL, new GetSignInRoute(), templateEngine);
+		get(SIGNUP_URL, new GetSignUpRoute(), templateEngine);
 
   }
 
