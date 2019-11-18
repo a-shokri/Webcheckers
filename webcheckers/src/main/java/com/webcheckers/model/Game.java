@@ -1,6 +1,4 @@
-package com.webcheckers.game;
-
-import com.webcheckers.player.Player;
+package com.webcheckers.model;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.webcheckers.player;
+package com.webcheckers.model;
 
 public class HumanPlayer implements Player, GameViewer{
     public void updateView() {

@@ -1,6 +1,4 @@
-package com.webcheckers.game;
-
-import com.webcheckers.player.GameViewer;
+package com.webcheckers.model;
 
 public interface ObservableSubject {
     public void subscribeGameViewer(GameViewer gameViewer);
