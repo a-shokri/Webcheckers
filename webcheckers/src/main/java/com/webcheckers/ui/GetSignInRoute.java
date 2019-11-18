@@ -40,7 +40,7 @@ public class GetSignInRoute implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request request, Response response) {
     Map<String, Object> vm = new HashMap<>();
-    vm.put("title", "Sign In!");
+    vm.put("title", "Sign In");
 
 		final String user = request.queryParams("user");
 
