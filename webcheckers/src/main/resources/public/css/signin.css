@@ -1,0 +1,27 @@
+.signin-wrapper {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  padding: 2.5%;
+}
+.signin-wrapper .divider {
+  border-right: 1px solid;
+}
+.signin-wrapper .signin, .signin-wrapper .signup {
+  width: 45%;
+}
+.signin-wrapper .signin form, .signin-wrapper .signup form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.signin-wrapper .signin form div, .signin-wrapper .signin form h3, .signin-wrapper .signup form div, .signin-wrapper .signup form h3 {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+.signin-wrapper .signin form button, .signin-wrapper .signup form button {
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+/*# sourceMappingURL=signin.css.map */
