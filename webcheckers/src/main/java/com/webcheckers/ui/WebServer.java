@@ -3,6 +3,7 @@ package com.webcheckers.ui;
 import static spark.Spark.*;
 import spark.TemplateEngine;
 
+import com.webcheckers.appl.GameCenter;
 
 /**
  * The server that initializes the set of HTTP request handlers.
@@ -55,6 +56,7 @@ public class WebServer {
   //
 
   private final TemplateEngine templateEngine;
+  private final GameCenter gameCenter;
 
   //
   // Constructor
@@ -67,8 +69,10 @@ public class WebServer {
    *    The default {@link TemplateEngine} to render views.
    */
   public WebServer(
-      final TemplateEngine templateEngine) {
+      final TemplateEngine templateEngine,
+      final GameCenter gameCenter) {
     	this.templateEngine = templateEngine;
+      this.gameCenter = gameCenter;
   }
 
   //
@@ -122,10 +126,10 @@ public class WebServer {
     //// code clean; using small classes.
 
     // Shows the Checkers game Home page.
-    get(HOME_URL, new HomeController(), templateEngine);
-		get(SIGNIN_URL, new GetSignInRoute(), templateEngine);
-		get(SIGNUP_URL, new GetSignUpRoute(), templateEngine);
-
+    get(HOME_URL, new HomeController(gameCenter), templateEngine);
+		get(REGISTRATION_URL, new GetRegistrationRoute(gameCenter), templateEngine);
+		post(SIGNIN_URL, new PostSignInRoute(gameCenter), templateEngine);
+		post(SIGNUP_URL, new PostSignUpRoute(gameCenter), templateEngine);
   }
 
 }

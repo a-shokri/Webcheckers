@@ -6,6 +6,7 @@ import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import com.webcheckers.ui.WebServer;
+import com.webcheckers.appl.GameCenter;
 
 
 /**
@@ -37,9 +38,10 @@ public final class Application {
     // responses sent back to the client. This will be the engine processing
     // the templates and associated data.
     final TemplateEngine templateEngine = new FreeMarkerEngine();
+    final GameCenter gameCenter = new GameCenter();
 
     // inject the game center and freemarker engine into web server
-    final WebServer webServer = new WebServer(templateEngine);
+    final WebServer webServer = new WebServer(templateEngine, gameCenter);
 
     // inject web server into application
     final Application app = new Application(webServer);
