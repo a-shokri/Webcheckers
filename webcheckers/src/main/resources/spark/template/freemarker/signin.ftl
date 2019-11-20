@@ -16,7 +16,7 @@
     <div class="body">
 		<div class="signin-wrapper">
 			<div class="signin">
-				<form action="./signin" method="GET">
+				<form action="./signin" method="POST">
 		          <h3>Sign In </h3>
 		          <div>Username: <input required name="user" /></div>
 				  		<div>Password: <input required name="password" /></div>
@@ -28,14 +28,14 @@
 			</div>
 			<div class="divider"></div>
 			<div class="signup">
-				<form action="./signup" method="GET">
+				<form action="./signup" method="POST">
 		          <h3>Sign Up </h3>
 				  <div>E-mail Address: <input required name="email" <#if email??> value="${email}"</#if>/></div>
           <div>Username: <input required name="user" <#if user??> value="${user}"</#if>/></div>
 				  <div>Password: <input required name="password" type="password"/></div>
 					<div>Confirm Password: <input required name="confirm" type="password"/></div>
-					<#if signupError??>
-						<div class="message error">${message}</div>
+					<#if message??>
+						<div class="message ${messageType}">${message}</div>
 					</#if>
           <button type="submit">Sign Up</button>
         </form>
