@@ -32,8 +32,8 @@
 		          <h3>Sign Up </h3>
 				  <div>E-mail Address: <input required name="email" <#if email??> value="${email}"</#if>/></div>
           <div>Username: <input required name="user" <#if user??> value="${user}"</#if>/></div>
-				  <div>Password: <input required name="password" type="password"/></div>
-					<div>Confirm Password: <input required name="confirm" type="password"/></div>
+				  <div>Password: <input required name="password" type="password" <#if password??> value="${password}"</#if>/></div>
+					<div>Confirm Password: <input required name="confirm" <#if confirm??> value="${confirm}"</#if> type="password"/></div>
 					<#if message??>
 						<div class="message ${messageType}">${message}</div>
 					</#if>
