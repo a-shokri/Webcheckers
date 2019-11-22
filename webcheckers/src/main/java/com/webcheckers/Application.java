@@ -2,6 +2,8 @@ package com.webcheckers;
 
 import java.util.logging.Logger;
 
+import com.webcheckers.appl.GameCenterFactory;
+import com.webcheckers.appl.IGameCenter;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
@@ -38,7 +40,7 @@ public final class Application {
     // responses sent back to the client. This will be the engine processing
     // the templates and associated data.
     final TemplateEngine templateEngine = new FreeMarkerEngine();
-    final GameCenter gameCenter = new GameCenter();
+    final IGameCenter gameCenter = GameCenterFactory.getGameCenter();
 
     // inject the game center and freemarker engine into web server
     final WebServer webServer = new WebServer(templateEngine, gameCenter);

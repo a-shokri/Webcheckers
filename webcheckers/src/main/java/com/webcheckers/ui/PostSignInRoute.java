@@ -6,10 +6,14 @@ import java.util.Objects;
 
 import com.webcheckers.appl.GameCenter;
 
+import com.webcheckers.appl.IGameCenter;
+import com.webcheckers.model.HumanPlayer;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * The Web Controller for the Home page.
@@ -26,7 +30,7 @@ public class PostSignInRoute implements TemplateViewRoute {
 	static final String HOME_NAME = "home.ftl";
   static final String SIGNIN_NAME = "signin.ftl";
 
-	private final GameCenter gameCenter;
+	private final IGameCenter gameCenter;
 
 	/**
 	 * The constructor for the {@code GET /game} route handler.
@@ -34,7 +38,7 @@ public class PostSignInRoute implements TemplateViewRoute {
 	 * @param gameCenter
 	 *    The {@link GameCenter} for the application.
 	 */
-	public PostSignInRoute(final GameCenter gameCenter) {
+	public PostSignInRoute(final IGameCenter gameCenter) {
 		// validation
 		Objects.requireNonNull(gameCenter, "gameCenter must not be null");
 		//
@@ -52,7 +56,7 @@ public class PostSignInRoute implements TemplateViewRoute {
 		credentials.put("password", request.queryParams("password"));
 
 		try {
-			String sessionID = gameCenter.login(credentials);
+			HumanPlayer user = gameCenter.login(credentials);
 			vm.put(CURRENT_USER_ATTR, true);
 			vm.put("title", "Home");
 			return new ModelAndView(vm , HOME_NAME);

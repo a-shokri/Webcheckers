@@ -17,56 +17,61 @@ public class HumanPlayer implements Player, GameViewer, Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Integer ID;
+    private Integer id;
     @Column(name = "USERNAME")
-    private String USERNAME;
+    private String username;
     @Column(name = "PASSWORD")
-    private String PASSWORD;
+    private String password;
     @Column(name = "EMAIL")
-    private String EMAIL;
-    
+    private String email;
+
+    public static final String ATTRIB_ID = "id";
+    public static final String ATTRIB_USERNAME = "username";
+    public static final String ATTRIB_PASSWORD = "password";
+    public static final String ATTRIB_EMAIL = "email";
+
 
     public void updateView() {
         //TODO: must be implemented
     }
 
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 
-    public String getUSERNAME() {
-        return USERNAME;
+    public String getUsername() {
+        return username;
     }
 
 
-    public void setUSERNAME(String USERNAME) {
-        this.USERNAME = USERNAME;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 
-    public String getPASSWORD() {
-        return PASSWORD;
+    public String getPassword() {
+        return password;
     }
 
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 
-    public String getEMAIL() {
-        return EMAIL;
+    public String getEmail() {
+        return email;
     }
 
 
-    public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

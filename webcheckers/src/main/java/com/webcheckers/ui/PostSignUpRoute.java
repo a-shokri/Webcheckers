@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import com.webcheckers.appl.GameCenter;
 
+import com.webcheckers.appl.IGameCenter;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -34,7 +35,7 @@ public class PostSignUpRoute implements TemplateViewRoute {
 
 	private static PasswordValidator passwordValidator;
 
-	private final GameCenter gameCenter;
+	private final IGameCenter gameCenter;
 
 	/**
 	 * The constructor for the {@code GET /game} route handler.
@@ -42,7 +43,7 @@ public class PostSignUpRoute implements TemplateViewRoute {
 	 * @param gameCenter
 	 *    The {@link GameCenter} for the application.
 	 */
-	public PostSignUpRoute(final GameCenter gameCenter) {
+	public PostSignUpRoute(final IGameCenter gameCenter) {
 		// validation
 		Objects.requireNonNull(gameCenter, "gameCenter must not be null");
 		//
