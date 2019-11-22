@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.webcheckers.model.db;
-import com.webcheckers.model.HumanPlayer;
 //import org.hibernate.cfg.Configuration;
 //import org.hibernate.SessionFactory;
 import org.hibernate.SessionFactory;
@@ -31,7 +30,7 @@ public class HibernateUtil {
              //       .buildSessionFactory();
              
              return new AnnotationConfiguration().configure(
-                    new File(System.getProperty("user.dir")+("/src/main/java/com/webcheckers/model/db/hibernate.cfg.xml"))).buildSessionFactory();
+                    new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath().replaceAll("%20", " ") + "/com/webcheckers/model/db/hibernate.cfg.xml")).buildSessionFactory();
  
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
