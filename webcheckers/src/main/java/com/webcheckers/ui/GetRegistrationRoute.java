@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import com.webcheckers.appl.GameCenter;
 
+import com.webcheckers.appl.IGameCenter;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,7 +21,7 @@ public class GetRegistrationRoute implements TemplateViewRoute {
 
   static final String SIGNIN_NAME = "signin.ftl";
 
-	private final GameCenter gameCenter;
+	private final IGameCenter gameCenter;
 
 	/**
 	 * The constructor for the {@code GET /game} route handler.
@@ -28,7 +29,7 @@ public class GetRegistrationRoute implements TemplateViewRoute {
 	 * @param gameCenter
 	 *    The {@link GameCenter} for the application.
 	 */
-	public GetRegistrationRoute(final GameCenter gameCenter) {
+	public GetRegistrationRoute(final IGameCenter gameCenter) {
 		// validation
 		Objects.requireNonNull(gameCenter, "gameCenter must not be null");
 		//

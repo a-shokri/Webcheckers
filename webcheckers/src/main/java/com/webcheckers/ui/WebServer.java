@@ -1,6 +1,9 @@
 package com.webcheckers.ui;
 
 import static spark.Spark.*;
+
+import com.webcheckers.appl.GameCenterFactory;
+import com.webcheckers.appl.IGameCenter;
 import spark.TemplateEngine;
 
 import com.webcheckers.appl.GameCenter;
@@ -57,7 +60,7 @@ public class WebServer {
   //
 
   private final TemplateEngine templateEngine;
-  private final GameCenter gameCenter;
+  private final IGameCenter gameCenter;
 
   //
   // Constructor
@@ -71,7 +74,7 @@ public class WebServer {
    */
   public WebServer(
       final TemplateEngine templateEngine,
-      final GameCenter gameCenter) {
+      final IGameCenter gameCenter) {
     	this.templateEngine = templateEngine;
       this.gameCenter = gameCenter;
   }

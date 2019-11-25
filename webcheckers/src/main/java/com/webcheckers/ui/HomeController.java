@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import com.webcheckers.appl.GameCenter;
 
+import com.webcheckers.appl.IGameCenter;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,7 +19,7 @@ import spark.TemplateViewRoute;
  */
 public class HomeController implements TemplateViewRoute {
 
-  private final GameCenter gameCenter;
+  private final IGameCenter gameCenter;
 
 	/**
 	 * The constructor for the {@code GET /game} route handler.
@@ -26,7 +27,7 @@ public class HomeController implements TemplateViewRoute {
 	 * @param gameCenter
 	 *    The {@link GameCenter} for the application.
 	 */
-	public HomeController(final GameCenter gameCenter) {
+	public HomeController(final IGameCenter gameCenter) {
 		// validation
 		Objects.requireNonNull(gameCenter, "gameCenter must not be null");
 		//
