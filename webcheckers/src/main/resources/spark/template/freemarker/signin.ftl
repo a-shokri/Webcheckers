@@ -19,7 +19,7 @@
 				<form action="./signin" method="POST">
 		          <h3>Sign In </h3>
 		          <div>Username: <input required name="user" /></div>
-				  		<div>Password: <input required name="password" /></div>
+				  		<div>Password: <input required name="password" type="password" /></div>
 							<#if invalidSignIn??>
       					<div class="message error">${invalidSignIn}</div>
       				</#if>

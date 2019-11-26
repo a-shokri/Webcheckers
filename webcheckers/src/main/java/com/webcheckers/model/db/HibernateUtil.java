@@ -19,30 +19,30 @@ public class HibernateUtil {
     {
         this.sessionFactory = buildSessionFactory();
     }
-    
- 
-    private SessionFactory buildSessionFactory() 
+
+
+    private SessionFactory buildSessionFactory()
     {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
             //return new Configuration().configure(
              //       new File(System.getProperty("user.dir")+("/src/main/java/com/webcheckers/model/db/hibernate.cfg.xml")))
              //       .buildSessionFactory();
-             
+
              return new AnnotationConfiguration().configure(
-                    new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath().replaceAll("%20", " ") + "/com/webcheckers/model/db/hibernate.cfg.xml")).buildSessionFactory();
- 
+                    new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath().replaceAll("%20", " ") + "/hibernate.cfg.xml")).buildSessionFactory();
+
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
- 
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
- 
+
     public void shutdown() {
         // Close caches and connection pools
         getSessionFactory().close();

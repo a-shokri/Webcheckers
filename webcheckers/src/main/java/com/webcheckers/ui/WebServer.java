@@ -53,6 +53,7 @@ public class WebServer {
   public static final String REGISTRATION_URL = "/registration";
 	public static final String SIGNIN_URL = "/signin";
 	public static final String SIGNUP_URL = "/signup";
+  public static final String SIGNOUT_URL = "/signout";
 
   //
   // Attributes
@@ -133,6 +134,7 @@ public class WebServer {
 		get(REGISTRATION_URL, new GetRegistrationRoute(gameCenter), templateEngine);
 		post(SIGNIN_URL, new PostSignInRoute(gameCenter), templateEngine);
 		post(SIGNUP_URL, new PostSignUpRoute(gameCenter), templateEngine);
+    post(SIGNOUT_URL, new PostSignOutRoute(gameCenter), templateEngine);
   }
 
 }
