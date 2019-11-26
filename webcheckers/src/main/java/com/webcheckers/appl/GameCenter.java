@@ -1,5 +1,8 @@
 package com.webcheckers.appl;
 
+import com.webcheckers.appl.auxiliary.BoardView;
+import com.webcheckers.model.GameView;
+import com.webcheckers.appl.auxiliary.BoardViewUtils;
 import com.webcheckers.model.*;
 import com.webcheckers.model.db.DBManagerFactory;
 import com.webcheckers.model.db.IDataManager;
@@ -98,6 +101,10 @@ public class GameCenter implements IGameCenter {
 
     protected void validateGameView( Player player, Game game ) throws GameException{
         throw new GameException( "This method is not implemented yet!" );
+    }
+
+    public BoardView getBoardView(long playerId, long gameId ) throws Exception {
+        return BoardViewUtils.createMockBoardView( playerId, gameId );
     }
 
 
