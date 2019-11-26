@@ -29,6 +29,8 @@ public class PostSignInRoute implements TemplateViewRoute {
 
 	static final String HOME_NAME = "home.ftl";
   static final String SIGNIN_NAME = "signin.ftl";
+	static final String USERNAME = HumanPlayer.ATTRIB_USERNAME;
+	static final String PASSWORD = HumanPlayer.ATTRIB_PASSWORD;
 
 	private final IGameCenter gameCenter;
 
@@ -52,8 +54,8 @@ public class PostSignInRoute implements TemplateViewRoute {
     Map<String, Object> vm = new HashMap<>();
 
 		Map<String, String> credentials = new HashMap<>();
-		credentials.put("user", request.queryParams("user"));
-		credentials.put("password", request.queryParams("password"));
+		credentials.put(USERNAME, request.queryParams("user"));
+		credentials.put(PASSWORD, request.queryParams("password"));
 
 		try {
 			HumanPlayer user = gameCenter.login(credentials);

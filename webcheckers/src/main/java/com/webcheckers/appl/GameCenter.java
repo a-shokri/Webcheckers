@@ -14,8 +14,9 @@ public class GameCenter implements IGameCenter {
         dataManager = DBManagerFactory.getDataManager();
     }
     public void registerUser(Map<String, String> registrationInfo) throws RegistrationException{
-        validateRegistrationInfo( registrationInfo );
-        createUser( registrationInfo );
+        HumanPlayer humanPlayer = fromMapToHumanPlayer( registrationInfo );
+        validateRegistrationInfo( humanPlayer );
+        createUser( humanPlayer );
     }
 
     protected HumanPlayer fromMapToHumanPlayer( Map<String, String> registrationInfo ){
@@ -26,8 +27,7 @@ public class GameCenter implements IGameCenter {
         return humanPlayer;
     }
 
-    protected void validateRegistrationInfo(Map<String, String> registrationInfo) throws RegistrationException{
-        HumanPlayer humanPlayer = fromMapToHumanPlayer( registrationInfo );
+    protected void validateRegistrationInfo(HumanPlayer humanPlayer) throws RegistrationException{
         if( humanPlayer.getUsername() == null || humanPlayer.getUsername().trim().isEmpty() ||
                 humanPlayer.getPassword() == null || humanPlayer.getPassword().isEmpty() ||
                 humanPlayer.getEmail() == null || humanPlayer.getEmail().trim().isEmpty()
@@ -35,8 +35,7 @@ public class GameCenter implements IGameCenter {
             throw new RegistrationException("Registration information is not complete! Please fill the form correctly!");
     }
 
-    protected HumanPlayer createUser( Map<String, String> registrationInfo ) throws RegistrationException {
-        HumanPlayer humanPlayer = fromMapToHumanPlayer( registrationInfo );
+    protected HumanPlayer createUser( HumanPlayer humanPlayer ) throws RegistrationException {
         Integer id = dataManager.save( humanPlayer );
         return (HumanPlayer) dataManager.findById( HumanPlayer.class, id );
     }
