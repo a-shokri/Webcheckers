@@ -59,12 +59,13 @@ public class PostSignInRoute implements TemplateViewRoute {
 
 		try {
 			HumanPlayer user = gameCenter.login(credentials);
+			request.session().attribute(USERNAME, user.getUsername());
 			vm.put(CURRENT_USER_ATTR, true);
 			vm.put("title", "Home");
 			return new ModelAndView(vm , HOME_NAME);
 		} catch (Exception e) {
 			vm.put("title", "Sign In");
-			// vm.put(INVALID_SIGNIN_ATTR, e.getMessage());
+			vm.put(INVALID_SIGNIN_ATTR, e.getMessage());
 	    return new ModelAndView(vm , SIGNIN_NAME);
 		}
 

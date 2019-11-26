@@ -6,6 +6,8 @@ import java.util.Objects;
 
 import com.webcheckers.appl.IGameCenter;
 
+import com.webcheckers.model.HumanPlayer;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -42,9 +44,7 @@ public class PostSignOutRoute implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request request, Response response) {
     Map<String, Object> vm = new HashMap<>();
-
-		request.session().removeAttribute("user");
-
+		request.session().removeAttribute(HumanPlayer.ATTRIB_USERNAME);
 		vm.put("title", "Home");
 		vm.put(CURRENT_USER_ATTR, false);
 	  return new ModelAndView(vm , HOME_NAME);
