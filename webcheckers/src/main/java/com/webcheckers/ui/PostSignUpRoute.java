@@ -7,6 +7,7 @@ import java.util.Objects;
 import com.webcheckers.appl.GameCenter;
 
 import com.webcheckers.appl.IGameCenter;
+import com.webcheckers.model.HumanPlayer;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -34,6 +35,11 @@ public class PostSignUpRoute implements TemplateViewRoute {
   static final String VIEW_NAME = "signin.ftl";
 
 	private static PasswordValidator passwordValidator;
+	static final String USERNAME = HumanPlayer.ATTRIB_USERNAME;
+	static final String PASSWORD = HumanPlayer.ATTRIB_PASSWORD;
+	static final String EMAIL = HumanPlayer.ATTRIB_EMAIL;
+	static final String CONFIRM = "confirm";
+
 
 	private final IGameCenter gameCenter;
 
@@ -65,10 +71,10 @@ public class PostSignUpRoute implements TemplateViewRoute {
 		String confirm = request.queryParams("confirm");
 
 		Map<String, String> registrationInfo = new HashMap<>();
-		registrationInfo.put("email", email);
-		registrationInfo.put("user", user);
-		registrationInfo.put("password", password);
-		registrationInfo.put("confirm", confirm);
+		registrationInfo.put(EMAIL, email);
+		registrationInfo.put(USERNAME, user);
+		registrationInfo.put(PASSWORD, password);
+		registrationInfo.put(CONFIRM, confirm);
 
 		//variable for allowing local e-mail addresses (e.g. rit.edu)
 		boolean ALLOW_LOCAL = true;
@@ -93,10 +99,10 @@ public class PostSignUpRoute implements TemplateViewRoute {
 
 	private ModelAndView error(final Map<String, Object> vm, final String message, final Map<String,String> registrationInfo) {
 		vm.put("title", "Sign Up");
-		vm.put("email", registrationInfo.get("email"));
-		vm.put("user", registrationInfo.get("user"));
-		vm.put("password", registrationInfo.get("password"));
-		vm.put("confirm", registrationInfo.get("confirm"));
+		vm.put("email", registrationInfo.get(EMAIL));
+		vm.put("user", registrationInfo.get(USERNAME));
+		vm.put("password", registrationInfo.get(PASSWORD));
+		vm.put("confirm", registrationInfo.get(CONFIRM));
 		vm.put(MESSAGE_TYPE_ATTR, ERROR_MESSAGE_TYPE);
 		vm.put(MESSAGE_ATTR, message);
 		return new ModelAndView(vm, VIEW_NAME);
