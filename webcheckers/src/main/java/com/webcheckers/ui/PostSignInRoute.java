@@ -62,7 +62,7 @@ public class PostSignInRoute implements TemplateViewRoute {
 			return new ModelAndView(vm , HOME_NAME);
 		} catch (Exception e) {
 			vm.put("title", "Sign In");
-			vm.put(INVALID_SIGNIN_ATTR, INVALID_SIGNIN_MESSAGE);
+			// vm.put(INVALID_SIGNIN_ATTR, e.getMessage());
 	    return new ModelAndView(vm , SIGNIN_NAME);
 		}
 

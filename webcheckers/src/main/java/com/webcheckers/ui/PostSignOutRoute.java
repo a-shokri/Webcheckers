@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.webcheckers.appl.GameCenter;
+import com.webcheckers.appl.IGameCenter;
 
 import spark.ModelAndView;
 import spark.Request;
@@ -22,7 +22,7 @@ public class PostSignOutRoute implements TemplateViewRoute {
 
 	static final String HOME_NAME = "home.ftl";
 
-	private final GameCenter gameCenter;
+	private final IGameCenter gameCenter;
 
 	/**
 	 * The constructor for the {@code GET /game} route handler.
@@ -30,7 +30,7 @@ public class PostSignOutRoute implements TemplateViewRoute {
 	 * @param gameCenter
 	 *    The {@link GameCenter} for the application.
 	 */
-	public PostSignInRoute(final GameCenter gameCenter) {
+	public PostSignOutRoute(final IGameCenter gameCenter) {
 		// validation
 		Objects.requireNonNull(gameCenter, "gameCenter must not be null");
 		//
