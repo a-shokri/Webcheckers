@@ -15,7 +15,7 @@
 			<!-- May have to remove default value after ! -->
 			<#if currentUser??>
 			<form id="signout" action="/signout" method="post">
-				<a href="#" onclick="event.preventDefault(); signout.submit();">sign out [${currentUser.name}]</a>
+				<a href="#" onclick="event.preventDefault(); signout.submit();">sign out [${currentUser.username}]</a>
 			</form>
 			<#else>
 				<a href="/registration">sign in</a>
