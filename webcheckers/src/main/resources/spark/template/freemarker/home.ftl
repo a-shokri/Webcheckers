@@ -13,10 +13,12 @@
     <div class="navigation">
       <a href="/">my home</a>
 			<!-- May have to remove default value after ! -->
-			<#if currentUser!false>
-			<a href="/signout">sign out</a>
+			<#if currentUser??>
+			<form id="signout" action="/signout" method="post">
+				<a href="#" onclick="event.preventDefault(); signout.submit();">sign out [${currentUser.name}]</a>
+			</form>
 			<#else>
-			<a href="/registration">sign in</a>
+				<a href="/registration">sign in</a>
 			</#if>
     </div>
 

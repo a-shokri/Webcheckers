@@ -38,6 +38,13 @@ public class GameController implements TemplateViewRoute {
   public ModelAndView handle(Request request, Response response) {
     Map<String, Object> vm = new HashMap<>();
     vm.put("title", "Welcome!");
+		vm.put("playerName", "test1");
+		vm.put("playerColor", "RED");
+		vm.put("opponentName", "test2");
+		vm.put("opponentColor", "WHITE");
+		vm.put("isMyTurn", true);
+
+
     return new ModelAndView(vm , "game.ftl");
   }
 
