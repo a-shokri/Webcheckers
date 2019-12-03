@@ -43,6 +43,11 @@ public class GameController implements TemplateViewRoute {
 		vm.put("opponentName", "test2");
 		vm.put("opponentColor", "WHITE");
 		vm.put("isMyTurn", true);
+		try {
+			vm.put("board", gameCenter.getBoardView(0, 0));
+		} catch (Exception e) {
+			;
+		}
 
 
     return new ModelAndView(vm , "game.ftl");

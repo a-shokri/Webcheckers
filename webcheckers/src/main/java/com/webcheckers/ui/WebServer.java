@@ -55,6 +55,7 @@ public class WebServer {
 	public static final String SIGNUP_URL = "/signup";
   public static final String SIGNOUT_URL = "/signout";
   public static final String GAME_URL = "/game";
+	public static final String VALIDATE_URL = "/validateMove";
 
   //
   // Attributes
@@ -137,6 +138,7 @@ public class WebServer {
 		post(SIGNUP_URL, new PostSignUpRoute(gameCenter), templateEngine);
     post(SIGNOUT_URL, new PostSignOutRoute(gameCenter), templateEngine);
     get(GAME_URL, new GameController(gameCenter), templateEngine);
+		post(VALIDATE_URL, new PostValidateMove(gameCenter));
   }
 
 }

@@ -1,6 +1,6 @@
 /**
  * This module exports the PendingMoveState class constructor.
- * 
+ *
  * This component is an concrete implementation of a state
  * for the Game view; this state represents the view state
  * in which the player has requested a move and is waiting
@@ -8,13 +8,13 @@
  */
 define(function(require){
   'use strict';
-  
+
   // imports
   var GameConstants = require('GameConstants');
 
   /**
    * Constructor function.
-   * 
+   *
    * @param {GameView} view
    *    The Game view object.
    */
@@ -35,7 +35,7 @@ define(function(require){
   PendingMoveState.prototype.getName = function getName() {
     return GameConstants.PENDING_MOVE;
   }
-  
+
   /**
    * Hook when entering this state.
    */
@@ -48,8 +48,9 @@ define(function(require){
     view.disableAllMyPieces();
     // 3) ask the server to validate the pending move
     function handleMoveResponse(message, textStatus, jqXHR) {
-      view.displayMessage(message);
-      if (message.type === 'error') {
+			alert(message);
+			view.displayMessage(message);
+      if (message.getType() === 'error') {
         view.resetPendingMove();
         view.setState(view.isTurnActive() ? GameConstants.STABLE_TURN : GameConstants.EMPTY_TURN);
       }
@@ -58,10 +59,11 @@ define(function(require){
         view.setState(GameConstants.STABLE_TURN);
       }
     }
+		console.log(JSON.stringify(move));
     jQuery.post('/validateMove', JSON.stringify(move), handleMoveResponse, 'json');
   }
 
   // export class constructor
   return PendingMoveState;
-  
+
 });

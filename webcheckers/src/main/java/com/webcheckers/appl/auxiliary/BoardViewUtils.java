@@ -22,13 +22,15 @@ public class BoardViewUtils {
         // Creating and adding pieces to Spaces
 
         rowList.forEach( row -> {
-            if( row.getIndex() < 2 )
+            if( row.getIndex() < 3 )
                 row.getSpaceList().forEach( space -> {
+									if(space.getSpaceColor().equals( Space.SpaceColor.DARK ))
                     space.setPiece( new Piece( Piece.PieceColor.WHITE, Piece.PieceType.SINGLE ) );
                 } );
-            else if( row.getIndex() > 5 )
+            else if( row.getIndex() > 4 )
                 row.getSpaceList().forEach( space -> {
-                    space.setPiece( new Piece( Piece.PieceColor.RED, Piece.PieceType.SINGLE ) );
+									if(space.getSpaceColor().equals( Space.SpaceColor.DARK ))
+                  	space.setPiece( new Piece( Piece.PieceColor.RED, Piece.PieceType.SINGLE ) );
                 } );
         } );
         return new BoardView( rowList );
