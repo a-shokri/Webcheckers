@@ -6,7 +6,7 @@ import com.webcheckers.appl.auxiliary.BoardViewUtils;
 import com.webcheckers.model.*;
 import com.webcheckers.model.db.DBManagerFactory;
 import com.webcheckers.model.db.IDataManager;
-
+import com.webcheckers.model.db.AES;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +50,7 @@ public class GameCenter implements IGameCenter {
 
     protected HumanPlayer validateUser(Map<String, String> loginInfo) throws LoginException{
         Map<String, Object> searchParam = new HashMap<>();
+        loginInfo.put("password", AES.encrypt(loginInfo.get("password"), "ABO") );
         searchParam.putAll( loginInfo );
         List<Object> foundUsers = dataManager.find( HumanPlayer.class, searchParam );
         if( foundUsers == null || foundUsers.size() != 1 )
