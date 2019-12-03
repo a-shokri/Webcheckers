@@ -1,5 +1,6 @@
 package com.webcheckers.model;
 
+import com.webcheckers.model.db.AES;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,12 +58,13 @@ public class HumanPlayer implements Player, GameViewer, Serializable{
 
 
     public String getPassword() {
-        return password;
+        return AES.decrypt(this.password, "ABO");
     }
 
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = AES.encrypt(password, "ABO");
+        //this.password = password;
     }
 
 
