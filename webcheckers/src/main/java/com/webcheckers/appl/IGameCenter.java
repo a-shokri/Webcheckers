@@ -1,5 +1,6 @@
 package com.webcheckers.appl;
 
+import com.webcheckers.appl.auxiliary.BoardView;
 import com.webcheckers.model.Game;
 import com.webcheckers.model.HumanPlayer;
 import com.webcheckers.model.Player;
@@ -20,4 +21,7 @@ public interface IGameCenter {
 
     public void registerPlayerAsViewer(Player player, Game game) throws GameException;
 
-}
+    public BoardView getBoardView(long playerId, long gameId ) throws Exception;
+
+
+    }
