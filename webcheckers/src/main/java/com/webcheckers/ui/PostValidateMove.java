@@ -46,8 +46,9 @@ public class PostValidateMove implements Route {
   public Object handle(Request request, Response response) {
 		// response.type("ERROR");
 		Message message = new Message("Test", Message.Type.INFO);
-		response.status(204);
-	  return message;
+		response.body( "{\"text\":\"Test\", \"type\":\"ERROR\"}" );
+		response.status(200);
+	  return "{\"text\":\"Test\", \"type\":\"ERROR\"}";
   }
 
 }

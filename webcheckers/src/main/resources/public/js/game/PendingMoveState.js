@@ -48,9 +48,9 @@ define(function(require){
     view.disableAllMyPieces();
     // 3) ask the server to validate the pending move
     function handleMoveResponse(message, textStatus, jqXHR) {
-			alert(message);
+			alert(message.type + ":" + message.text);
 			view.displayMessage(message);
-      if (message.getType() === 'error') {
+      if (message.type === 'error') {
         view.resetPendingMove();
         view.setState(view.isTurnActive() ? GameConstants.STABLE_TURN : GameConstants.EMPTY_TURN);
       }

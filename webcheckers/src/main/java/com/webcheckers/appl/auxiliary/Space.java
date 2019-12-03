@@ -1,5 +1,7 @@
 package com.webcheckers.appl.auxiliary;
 
+import java.util.logging.Logger;
+
 public class Space {
 
     public enum SpaceColor {DARK, WHITE};
